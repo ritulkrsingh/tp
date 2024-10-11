@@ -40,6 +40,8 @@ public class SupplierCard extends UiPart<Region> {
     private Label email;
     @FXML
     private FlowPane tags;
+    @FXML
+    private Label remark;
 
     /**
      * Creates a {@code SupplierCode} with the given {@code Supplier} and index to display.
@@ -52,6 +54,7 @@ public class SupplierCard extends UiPart<Region> {
         phone.setText(supplier.getPhone().value);
         address.setText(supplier.getAddress().value);
         email.setText(supplier.getEmail().value);
+        remark.setText(supplier.getRemark().value);
         supplier.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));

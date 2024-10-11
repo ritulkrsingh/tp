@@ -16,6 +16,7 @@ import seedu.address.model.supplier.Address;
 import seedu.address.model.supplier.Email;
 import seedu.address.model.supplier.Name;
 import seedu.address.model.supplier.Phone;
+import seedu.address.model.supplier.Remark;
 import seedu.address.model.supplier.Supplier;
 import seedu.address.model.tag.Tag;
 
@@ -43,9 +44,10 @@ public class AddSupplierCommandParser implements Parser<AddSupplierCommand> {
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
+        Remark remark = new Remark("");
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Supplier supplier = new Supplier(name, phone, email, address, tagList);
+        Supplier supplier = new Supplier(name, phone, email, address, remark, tagList);
 
         return new AddSupplierCommand(supplier);
     }

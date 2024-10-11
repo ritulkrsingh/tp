@@ -14,6 +14,7 @@ import seedu.address.model.supplier.Address;
 import seedu.address.model.supplier.Email;
 import seedu.address.model.supplier.Name;
 import seedu.address.model.supplier.Phone;
+import seedu.address.model.supplier.Remark;
 import seedu.address.model.supplier.Supplier;
 import seedu.address.model.tag.Tag;
 
@@ -103,7 +104,9 @@ class JsonAdaptedSupplier {
         final Address modelAddress = new Address(address);
 
         final Set<Tag> modelTags = new HashSet<>(supplierTags);
-        return new Supplier(modelName, modelPhone, modelEmail, modelAddress, modelTags);
+        final Remark modelRemark = new Remark("");
+
+        return new Supplier(modelName, modelPhone, modelEmail, modelAddress, modelRemark, modelTags);
     }
 
 }

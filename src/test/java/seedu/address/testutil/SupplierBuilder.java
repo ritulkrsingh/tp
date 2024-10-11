@@ -7,6 +7,7 @@ import seedu.address.model.supplier.Address;
 import seedu.address.model.supplier.Email;
 import seedu.address.model.supplier.Name;
 import seedu.address.model.supplier.Phone;
+import seedu.address.model.supplier.Remark;
 import seedu.address.model.supplier.Supplier;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
@@ -20,11 +21,13 @@ public class SupplierBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
+    public static final String DEFAULT_REMARK = "";
 
     private Name name;
     private Phone phone;
     private Email email;
     private Address address;
+    private Remark remark;
     private Set<Tag> tags;
 
     /**
@@ -35,6 +38,7 @@ public class SupplierBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
+        remark = new Remark(DEFAULT_REMARK);
         tags = new HashSet<>();
     }
 
@@ -46,6 +50,7 @@ public class SupplierBuilder {
         phone = supplierToCopy.getPhone();
         email = supplierToCopy.getEmail();
         address = supplierToCopy.getAddress();
+        remark = supplierToCopy.getRemark();
         tags = new HashSet<>(supplierToCopy.getTags());
     }
 
@@ -89,8 +94,16 @@ public class SupplierBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Remark} of the {@code Person} that we are building.
+     */
+    public SupplierBuilder withRemark(String remark) {
+        this.remark = new Remark(remark);
+        return this;
+    }
+
     public Supplier build() {
-        return new Supplier(name, phone, email, address, tags);
+        return new Supplier(name, phone, email, address, remark, tags);
     }
 
 }
