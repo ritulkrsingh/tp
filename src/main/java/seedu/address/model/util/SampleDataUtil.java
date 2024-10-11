@@ -20,7 +20,7 @@ import seedu.address.model.tag.Tag;
 public class SampleDataUtil {
 
     public static final Remark EMPTY_REMARK = new Remark("");
-   
+
     public static Supplier[] getSampleSuppliers() {
         return new Supplier[] {
             new Supplier(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),

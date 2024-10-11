@@ -60,7 +60,7 @@ public class Supplier {
     public Address getAddress() {
         return address;
     }
-    
+
     public Remark getRemark() {
         return remark;
     }
