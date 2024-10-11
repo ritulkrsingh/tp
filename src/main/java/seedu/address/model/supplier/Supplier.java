@@ -122,7 +122,7 @@ public class Supplier {
                 .add("phone", phone)
                 .add("email", email)
                 .add("address", address)
-                .add(" Remark: ", getRemark())
+                .add("remark", getRemark())
                 .add("tags", tags)
                 .toString();
     }
