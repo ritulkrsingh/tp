@@ -240,6 +240,10 @@ Exits the program.
 
 Format: `exit`
 
+### Auto-Complete
+
+When you're entering the name of an existing supplier, product or a tag in a command, you can press the Tab key and upto 8 suggestions for completion of current input will be shown. If there is only one entry matching the input the input will be automatically updated.
+
 ### Saving the data
 
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.

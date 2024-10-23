@@ -19,13 +19,26 @@ public class CommandResult {
     /** The application should exit. */
     private final boolean exit;
 
+    private final boolean updateCommandBox;
+    private final boolean resultDisplay;
+
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
-    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit) {
+    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit, boolean updateCommandBox, boolean resultDisplay) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
+        this.updateCommandBox = updateCommandBox;
+        this.resultDisplay = resultDisplay;
+    }
+
+    /**
+     * Constructs a {@code CommandResult} with the specified {@code feedbackToUser},
+     * and other fields set to their default value.
+     */
+    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit) {
+        this(feedbackToUser, false, false, false, true);
     }
 
     /**
@@ -33,7 +46,7 @@ public class CommandResult {
      * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false);
+        this(feedbackToUser, false, false, false, true);
     }
 
     public String getFeedbackToUser() {
@@ -46,6 +59,14 @@ public class CommandResult {
 
     public boolean isExit() {
         return exit;
+    }
+
+    public boolean getUpdateCommandBox() {
+        return updateCommandBox;
+    }
+
+    public boolean getResultDisplay() {
+        return resultDisplay;
     }
 
     @Override
@@ -62,7 +83,9 @@ public class CommandResult {
         CommandResult otherCommandResult = (CommandResult) other;
         return feedbackToUser.equals(otherCommandResult.feedbackToUser)
                 && showHelp == otherCommandResult.showHelp
-                && exit == otherCommandResult.exit;
+                && exit == otherCommandResult.exit
+                && updateCommandBox == otherCommandResult.updateCommandBox
+                && resultDisplay == otherCommandResult.resultDisplay;
     }
 
     @Override
